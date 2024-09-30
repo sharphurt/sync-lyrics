@@ -20,12 +20,11 @@ public class AuthorizationUrlService {
     @Value("${spotify.scopes}")
     private String scopes;
 
-    @Value("${spotify.codeVerifier}")
+    @Value("${spotify.clientSecret}")
     private String codeVerifier;
 
     public String getAuthorizationURL() {
         var codeChallenge = CryptographicUtil.generateCodeChallenge(codeVerifier);
-
         return authorizationUri
                 + "?client_id=" + clientId
                 + "&response_type=code&redirect_uri=" + redirectUri
