@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: synclyrics
+
+spotify:
+  clientId: 26ba5d2e8b3449b2bdf63fd656b467d6
+  clientSecret: 5a83c71934fb43b482fc8a9daf41a6fb
+  tokenUri: https://accounts.spotify.com/api/token
+  authorizationUri: https://accounts.spotify.com/authorize
+  baseUri: https://api.spotify.com/v1
+  redirectUri: http://localhost:8080/callback
+  authorizationGrandType: authorization_code
+  codeVerifier: cHPIRstJXM7etF1kH41BZEaG2ojD8XOvqy5ENwNeSsY
+  scopes: > 
+    ugc-image-upload,
+    user-read-playback-state,
+    user-modify-playback-state,
+    user-read-currently-playing,
+    streaming,
+    app-remote-control,
+    user-read-email,
+    user-read-private,
+    playlist-read-collaborative,
+    playlist-modify-public,
+    playlist-read-private,
+    playlist-modify-private,
+    user-library-modify,
+    user-library-read,
+    user-top-read,
+    user-read-playback-position,
+    user-read-recently-played,
+    user-follow-read,
+    user-follow-modify
