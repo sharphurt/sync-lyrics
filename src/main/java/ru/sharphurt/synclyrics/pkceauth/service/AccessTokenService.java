@@ -26,9 +26,8 @@ public class AccessTokenService {
     @Value("${spotify.authorizationGrandType}")
     private String authorizationGrandType;
 
-    @Value("${spotify.codeVerifier}")
+    @Value("${spotify.clientSecret}")
     private String codeVerifier;
-
 
     public TokenDto getToken(String code) {
         var restTemplate = new RestTemplate();

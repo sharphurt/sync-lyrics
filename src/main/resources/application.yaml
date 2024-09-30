@@ -3,14 +3,13 @@ spring:
     name: synclyrics
 
 spotify:
-  clientId: 26ba5d2e8b3449b2bdf63fd656b467d6
-  clientSecret: 5a83c71934fb43b482fc8a9daf41a6fb
+  clientId: ${SPOTIFY_CLIENT_ID}
+  clientSecret: ${SPOTIFY_CLIENT_SECRET}
   tokenUri: https://accounts.spotify.com/api/token
   authorizationUri: https://accounts.spotify.com/authorize
   baseUri: https://api.spotify.com/v1
   redirectUri: http://localhost:8080/callback
   authorizationGrandType: authorization_code
-  codeVerifier: cHPIRstJXM7etF1kH41BZEaG2ojD8XOvqy5ENwNeSsY
   scopes: > 
     ugc-image-upload,
     user-read-playback-state,

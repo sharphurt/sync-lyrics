@@ -2,14 +2,11 @@ package ru.sharphurt.synclyrics.pkceauth.service;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
-import ru.sharphurt.synclyrics.configuration.SpotifyAppConfigurationProperties;
 import ru.sharphurt.synclyrics.pkceauth.util.CryptographicUtil;
 
 @Service
 @Data
-@EnableConfigurationProperties(SpotifyAppConfigurationProperties.class)
 public class AuthorizationUrlService {
     @Value("${spotify.authorizationUri}")
     private String authorizationUri;
