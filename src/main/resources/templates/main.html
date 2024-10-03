@@ -5,13 +5,12 @@
     <title>SyncLyrics</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script th:src="@{/js/spotifyPlayback.js}"></script>
 
 </head>
 <body>
 <div class="row">
-    <h3 class="h3 container-username-heading" th:text="'Hello '+${userName}">Hello User</h3>
+    <h3 class="h3 container-username-heading" th:text="'Hello '+${userInfo.getDisplay_name()}">Hello User</h3>
 </div>
 </body>
 </html>

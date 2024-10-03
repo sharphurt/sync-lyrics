@@ -1,4 +1,4 @@
-package ru.sharphurt.synclyrics.api.player.service;
+package ru.sharphurt.synclyrics.spotifyapi.player.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.sharphurt.synclyrics.api.player.exception.NoPlayingTrackException;
+import ru.sharphurt.synclyrics.spotifyapi.player.exception.NoPlayingTrackException;
 import ru.sharphurt.synclyrics.pkceauth.dto.TokenDto;
 
 import java.util.LinkedHashMap;

@@ -1,4 +1,4 @@
-package ru.sharphurt.synclyrics.api.user.dto;
+package ru.sharphurt.synclyrics.spotifyapi.user.dto;
 
 import lombok.Data;
 

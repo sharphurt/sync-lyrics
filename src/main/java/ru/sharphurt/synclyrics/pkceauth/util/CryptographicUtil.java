@@ -9,7 +9,6 @@ import java.util.Base64;
 
 @Slf4j
 public class CryptographicUtil {
-
     public static String generateCodeChallenge(String codeVerifier) {
         byte[] digest = null;
         try {

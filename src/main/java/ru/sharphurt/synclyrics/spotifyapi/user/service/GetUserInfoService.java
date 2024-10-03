@@ -1,4 +1,4 @@
-package ru.sharphurt.synclyrics.api.user.service;
+package ru.sharphurt.synclyrics.spotifyapi.user.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.sharphurt.synclyrics.api.user.dto.UserDto;
+import ru.sharphurt.synclyrics.spotifyapi.user.dto.UserDto;
 import ru.sharphurt.synclyrics.pkceauth.dto.TokenDto;
 
 @Service

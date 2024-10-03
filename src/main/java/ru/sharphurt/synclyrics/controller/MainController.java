@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.sharphurt.synclyrics.api.player.exception.NoPlayingTrackException;
-import ru.sharphurt.synclyrics.api.player.service.PlaybackStateService;
-import ru.sharphurt.synclyrics.api.user.service.GetUserInfoService;
+import ru.sharphurt.synclyrics.spotifyapi.player.exception.NoPlayingTrackException;
+import ru.sharphurt.synclyrics.spotifyapi.player.service.PlaybackStateService;
+import ru.sharphurt.synclyrics.spotifyapi.user.service.GetUserInfoService;
 import ru.sharphurt.synclyrics.constants.Template;
 import ru.sharphurt.synclyrics.pkceauth.dto.TokenDto;
 
