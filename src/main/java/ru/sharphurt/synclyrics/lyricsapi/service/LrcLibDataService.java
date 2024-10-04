@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.sharphurt.synclyrics.lyricsapi.dto.LyricsResponseDto;
-import ru.sharphurt.synclyrics.lyricsapi.dto.TimedString;
+import ru.sharphurt.synclyrics.lyricsapi.dto.LyricsString;
 import ru.sharphurt.synclyrics.lyricsapi.dto.TrackLyricsDto;
 
 import java.time.Duration;
@@ -19,9 +19,8 @@ public class LrcLibDataService {
     private String baseUri;
 
     public LyricsResponseDto getLyrics(String trackName, String artistName, String albumName) {
-        var url = baseUri + "/search?q=%s %s %s".formatted(trackName, artistName, albumName);
+        var url = baseUri + "/search?q=%s %s %s".formatted(trackName, artistName, albumName).replaceAll("[\\[\\]]", " ");
         var restTemplate = new RestTemplate();
-
 
         var result = restTemplate.getForObject(url, TrackLyricsDto[].class);
         if (result.length > 0) {
@@ -46,14 +45,15 @@ public class LrcLibDataService {
         }
 
         if (dto.getPlainLyrics() != null) {
-            result.setPlainLyrics(Arrays.stream(dto.getPlainLyrics().split("\n")).toList());
+            var plainLyrics = Arrays.stream(dto.getPlainLyrics().split("\n")).map(e -> new LyricsString(null, null, e)).toList();
+            result.setPlainLyrics(plainLyrics);
         }
 
         return result;
     }
 
-    private List<TimedString> parseSyncedLyrics(String lyrics) {
-        var result = new ArrayList<TimedString>();
+    private List<LyricsString> parseSyncedLyrics(String lyrics) {
+        var result = new ArrayList<LyricsString>();
         var strings = lyrics.split("\n");
 
         for (var string : strings) {
@@ -66,7 +66,7 @@ public class LrcLibDataService {
             var text = string.substring(10).trim();
             var timeMillis = duration.toMillis();
 
-            result.add(new TimedString(duration, timeMillis, text));
+            result.add(new LyricsString(duration, timeMillis, text));
         }
 
         return result;

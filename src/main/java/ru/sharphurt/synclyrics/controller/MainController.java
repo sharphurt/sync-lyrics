@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.view.RedirectView;
 import ru.sharphurt.synclyrics.spotifyapi.player.exception.NoPlayingTrackException;
 import ru.sharphurt.synclyrics.spotifyapi.player.service.PlaybackStateService;
 import ru.sharphurt.synclyrics.spotifyapi.user.service.GetUserInfoService;
@@ -21,8 +22,12 @@ public class MainController {
     private final PlaybackStateService playbackStateService;
 
     @GetMapping("/main")
-    public String showMain(HttpSession httpSession, Model model, HttpServletResponse response) {
+    public RedirectView showMain(HttpSession httpSession, Model model, HttpServletResponse response) {
         var tokenDto = (TokenDto) httpSession.getAttribute("accessToken");
+        if (tokenDto == null) {
+            return new RedirectView(Template.INDEX);
+        }
+
         setUpCookies(tokenDto, response);
 
         model.addAttribute("accessToken", tokenDto);
@@ -38,7 +43,7 @@ public class MainController {
             model.addAttribute("display", 0);
         }
 
-        return Template.MAIN;
+        return new RedirectView(Template.MAIN);
     }
 
     private void setUpCookies(TokenDto tokenDto, HttpServletResponse response) {

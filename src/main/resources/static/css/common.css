@@ -1,0 +1,57 @@
+:root {
+    /* Colors */
+    --main-bg: #0D0E1C;
+    --pane-bg: #131525;
+    --badge-bg: #181A2A;
+    --primary-text: #D0D0D3;
+    --secondary-text: #4B4D59;
+    --accent-bg: #103629;
+    --accent: #1ED760;
+    --button-bg: #262836;
+    --transparent-dark: #0d0e1c90;
+
+    /* Sizes */
+    --xs-size: 8px;
+    --s-size: 16px;
+    --m-size: 24px;
+    --l-size: 32px;
+    --xl-size: 48px;
+    --xxl-size: 64px;
+    --xxxl-size: 192px;
+
+    /* Widths */
+    --page-max-width: 1200px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--main-bg);
+}
+
+/* Text styles */
+
+.lyrics-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 120%;
+}
+
+.primary-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+}
+
+.secondary-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+}
+
+
+

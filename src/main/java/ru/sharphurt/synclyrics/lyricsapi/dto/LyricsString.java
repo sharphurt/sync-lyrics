@@ -7,7 +7,7 @@ import java.time.Duration;
 
 @Data
 @AllArgsConstructor
-public class TimedString {
+public class LyricsString {
     private Duration time;
     private Long milliseconds;
     private String text;

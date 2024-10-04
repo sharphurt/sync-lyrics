@@ -13,6 +13,6 @@ public class LyricsResponseDto {
     private String albumName;
     private Integer duration;
     private Boolean instrumental;
-    private List<String> plainLyrics;
-    private List<TimedString> syncedLyrics;
+    private List<LyricsString> plainLyrics;
+    private List<LyricsString> syncedLyrics;
 }

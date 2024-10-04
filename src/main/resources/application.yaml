@@ -3,7 +3,7 @@ spring:
     name: synclyrics
 
 lrclib:
-  baseUri: https://lrclib.net/api/
+  baseUri: https://lrclib.net/api
 
 spotify:
   clientId: ${SPOTIFY_CLIENT_ID}
