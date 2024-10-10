@@ -9,13 +9,14 @@ import ru.sharphurt.synclyrics.pkceauth.service.AuthorizationUrlService;
 
 @Controller
 @AllArgsConstructor
-public class IndexController {
+public class LoginController {
 
     private final AuthorizationUrlService authorizationUrlService;
 
-    @GetMapping(value = {"/", "/index"} )
-    public String index(Model model) {
+    @GetMapping("/login")
+    public String login(Model model) {
         model.addAttribute("url", authorizationUrlService.getAuthorizationURL());
-        return Template.INDEX;
+        return Template.LOGIN;
     }
 }
+

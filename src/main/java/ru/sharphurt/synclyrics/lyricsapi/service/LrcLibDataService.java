@@ -57,13 +57,13 @@ public class LrcLibDataService {
         var strings = lyrics.split("\n");
 
         for (var string : strings) {
-            var time = string.substring(1, 9);
+            var time = string.substring(string.indexOf('[') + 1, string.indexOf(']'));
             var minutes = Integer.parseInt(time.substring(0, 2));
             var seconds = Integer.parseInt(time.substring(3, 5));
             var millis = Integer.parseInt(time.substring(6, 8));
             var duration = Duration.ofMinutes(minutes).plusSeconds(seconds).plusMillis(millis);
 
-            var text = string.substring(10).trim();
+            var text = string.trim().substring(string.indexOf(']') + 1).trim();
             var timeMillis = duration.toMillis();
 
             result.add(new LyricsString(duration, timeMillis, text));
