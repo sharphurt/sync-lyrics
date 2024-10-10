@@ -11,10 +11,15 @@ class Lyrics {
 
     loadNewLyrics = (data) => {
         $.ajax({
-            url: this.GET_LYRICS_URL + `?trackName=${data.track}&artistName=${data.artist}&albumName=${data.album}`.replaceAll('[', ' ').replaceAll(']', ' '),
-            method: 'get',
+            url: this.GET_LYRICS_URL,
+            method: 'post',
             contentType: 'application/json',
-            processData: false,
+            dataType: 'json',
+            data: JSON.stringify({
+                artistName: data?.artist,
+                trackName: data?.track,
+                albumName: data?.album
+            }),
             success: (response) => this.onSuccessLoading(response, data.id),
             error: this.onError
         })

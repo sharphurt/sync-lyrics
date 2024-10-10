@@ -22,7 +22,7 @@ const init = () => {
         const spotifyData = spotify.getPlaybackState()
         const lyricsData = lyrics.cache
 
-        if (currentlyDisplayedTrackId !== lyricsData.trackId || currentlyDisplayedTrackId === "") {
+        if (currentlyDisplayedTrackId !== lyricsData.trackId || currentlyDisplayedTrackId === "" && spotifyData) {
             lyrics.loadNewLyrics(spotifyData)
             displayTrackInfo(spotifyData)
             setLyricsState(LYRICS_STATE.Loading)

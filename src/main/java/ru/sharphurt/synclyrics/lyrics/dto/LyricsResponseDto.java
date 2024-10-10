@@ -1,4 +1,4 @@
-package ru.sharphurt.synclyrics.lyricsapi.dto;
+package ru.sharphurt.synclyrics.lyrics.dto;
 
 import lombok.Data;
 
@@ -13,6 +13,6 @@ public class LyricsResponseDto {
     private String albumName;
     private Integer duration;
     private Boolean instrumental;
-    private List<LyricsString> plainLyrics;
-    private List<LyricsString> syncedLyrics;
+    private List<LyricsStringDto> plainLyrics;
+    private List<LyricsStringDto> syncedLyrics;
 }

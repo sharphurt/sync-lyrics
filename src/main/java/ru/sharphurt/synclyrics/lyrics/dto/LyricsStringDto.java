@@ -1,14 +1,11 @@
-package ru.sharphurt.synclyrics.lyricsapi.dto;
+package ru.sharphurt.synclyrics.lyrics.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.Duration;
-
 @Data
 @AllArgsConstructor
-public class LyricsString {
-    private Duration time;
+public class LyricsStringDto {
     private Long milliseconds;
     private String text;
 }

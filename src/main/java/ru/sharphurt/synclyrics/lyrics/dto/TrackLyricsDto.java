@@ -1,8 +1,6 @@
-package ru.sharphurt.synclyrics.lyricsapi.dto;
+package ru.sharphurt.synclyrics.lyrics.dto;
 
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class TrackLyricsDto {
