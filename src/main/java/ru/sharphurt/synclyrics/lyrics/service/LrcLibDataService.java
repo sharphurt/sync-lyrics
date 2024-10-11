@@ -2,6 +2,7 @@ package ru.sharphurt.synclyrics.lyrics.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.sharphurt.synclyrics.exceptions.LyricsProcessingException;
 import ru.sharphurt.synclyrics.lyrics.client.LrcLibClient;
 import ru.sharphurt.synclyrics.lyrics.dto.LyricsRequestDto;
 import ru.sharphurt.synclyrics.lyrics.dto.LyricsResponseDto;
@@ -21,11 +22,11 @@ public class LrcLibDataService {
 
     public LyricsResponseDto getLyrics(LyricsRequestDto requestDto) {
         var result = lrcLibClient.getTrack(requestDto.getArtistName(), requestDto.getTrackName(), requestDto.getAlbumName());
-        if (result != null) {
-            return parseTrackLyrics(result);
+        if (result == null) {
+            throw new LyricsProcessingException(requestDto);
         }
 
-        return null;
+        return parseTrackLyrics(result);
     }
 
     private LyricsResponseDto parseTrackLyrics(TrackLyricsDto dto) {

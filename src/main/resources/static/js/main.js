@@ -50,6 +50,8 @@ const init = () => {
     $(lyrics).on('lyrics-loaded', function (event, lyrics) {
         displayLyrics(lyrics)
         setLyricsState(LYRICS_STATE.ShowLyrics)
+    }).on('loading-error', function () {
+        setLyricsState(LYRICS_STATE.NoLyrics)
     })
 }
 
@@ -62,14 +64,13 @@ function scrollToLine(lineNumber) {
     line.addClass('current-line')
 }
 
+const displayNoLyrics = () => {
+
+}
+
 const displayLyrics = (lyricsData) => {
     currentlyDisplayedTrackId = lyricsData.trackId
     currentlyHighlightedStringId = -1
-
-    if ((!lyricsData.loadedLyrics.syncedLyrics && !lyricsData.loadedLyrics.plainLyrics) || lyricsData.loadedLyrics == "") {
-        setLyricsState(LYRICS_STATE.NoLyrics)
-        return
-    }
 
     if (lyricsData.loadedLyrics.syncedLyrics) {
         setLyricsState(LYRICS_STATE.ShowSyncedLyrics)

@@ -10,6 +10,7 @@ import ru.sharphurt.synclyrics.lyrics.service.LrcLibDataService;
 @RestController
 @RequestMapping("/lyrics")
 @AllArgsConstructor
+@CrossOrigin
 public class LyricsController {
 
     private final LrcLibDataService lrcLibDataService;

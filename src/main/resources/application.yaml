@@ -1,6 +1,30 @@
 spring:
   application:
     name: synclyrics
+  jpa:
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:33061/synclyrics
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  liquibase:
+    enabled: true
+    drop-first: true
+    change-log: classpath:db/changelog/changelog-master.xml
+    default-schema: synclyrics
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            loggerLevel: full
+
+logging:
+  level:
+    ru.sharphurt.synclyrics: DEBUG
 
 lrclib:
   url: https://lrclib.net/api
@@ -12,8 +36,8 @@ spotify:
   authorizationUri: https://accounts.spotify.com/authorize
   baseUri: https://api.spotify.com/v1
   redirectUri: http://localhost:8080/callback
-  authorizationGrandType: authorization_code
-  scopes: > 
+  grandType: authorization_code
+  scopes: >
     ugc-image-upload,
     user-read-playback-state,
     user-modify-playback-state,
@@ -33,3 +57,4 @@ spotify:
     user-read-recently-played,
     user-follow-read,
     user-follow-modify
+    

@@ -8,29 +8,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 import ru.sharphurt.synclyrics.constants.Template;
-import ru.sharphurt.synclyrics.pkceauth.service.AccessTokenService;
-import ru.sharphurt.synclyrics.pkceauth.service.AuthorizationUrlService;
+import ru.sharphurt.synclyrics.auth.service.AuthorizationService;
 
 @Controller
 @AllArgsConstructor
 public class CallbackController {
 
-    private final AuthorizationUrlService authorizationUrlService;
-    private final AccessTokenService accessTokenService;
+    private final AuthorizationService accessTokenService;
 
     @GetMapping("/callback")
-    public RedirectView callback(@RequestParam(value = "code", required = false) final String code,
-                           @RequestParam(value = "error", required = false) final String error,
-                           Model model, HttpSession session) {
-
+    public RedirectView callback(@RequestParam(value = "code", required = false) String code,
+                                 @RequestParam(value = "error", required = false) String error,
+                                 Model model, HttpSession httpSession) {
         if (error != null) {
-            model.addAttribute("url", authorizationUrlService.getAuthorizationURL());
+            model.addAttribute("url", accessTokenService.getAuthorizationURL());
             return new RedirectView(Template.AUTHORIZATION_ERROR);
         }
 
-        session.setAttribute("code", code);
-        var token = accessTokenService.getToken(code);
-        session.setAttribute("accessToken", token);
+        var session = accessTokenService.finishAuthorization(code);
+        httpSession.setAttribute("session", session);
+
+        var token = session.getAccessToken();
+        httpSession.setAttribute("accessToken", token);
         return new RedirectView(Template.MAIN);
     }
 }

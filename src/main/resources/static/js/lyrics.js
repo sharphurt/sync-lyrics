@@ -34,7 +34,7 @@ class Lyrics {
 
     onError = (error) => {
         this.currentState = 'error'
-        console.error(error)
+        console.error("Lyrics not loaded")
         $(this).trigger('loading-error')
     }
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet logicalFilePath="changelog-master" id="changelog-master" author="sharphurt">
+        <createTable tableName="session">
+            <column name="session_id" type="uuid">
+                <constraints nullable="false" primaryKey="true" unique="true"/>
+            </column>
+            <column name="user_id" type="varchar(30)">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="access_token" type="varchar(512)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="refresh_token" type="varchar(512)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="last_token_update" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="access_expires_at" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

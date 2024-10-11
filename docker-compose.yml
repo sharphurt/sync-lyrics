@@ -1,0 +1,27 @@
+services:
+  synclyrics:
+    image: news-storage
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.3.0
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ALLOW_EMPTY_PASSWORD: false
+      MYSQL_DATABASE: synclyrics
+    ports:
+      - "33061:3306"
+    volumes:
+      - ./src/main/resources/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./dbdata:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  db-data:
