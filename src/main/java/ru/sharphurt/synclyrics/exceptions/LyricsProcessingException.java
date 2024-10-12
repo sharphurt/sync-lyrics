@@ -1,6 +1,6 @@
 package ru.sharphurt.synclyrics.exceptions;
 
-import ru.sharphurt.synclyrics.lyrics.dto.LyricsRequestDto;
+import ru.sharphurt.synclyrics.dto.lyrics.LyricsRequestDto;
 
 import static ru.sharphurt.synclyrics.constants.AliasConstants.EXCEPTION_LYRICS_PROCESSING;
 

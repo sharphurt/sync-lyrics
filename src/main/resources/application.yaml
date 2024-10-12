@@ -29,6 +29,9 @@ logging:
 lrclib:
   url: https://lrclib.net/api
 
+frontend:
+  url: http://localhost:3000
+
 spotify:
   clientId: ${SPOTIFY_CLIENT_ID}
   clientSecret: ${SPOTIFY_CLIENT_SECRET}

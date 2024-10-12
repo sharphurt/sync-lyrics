@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import ru.sharphurt.synclyrics.dto.req.ControllerErrorResponse;
+import ru.sharphurt.synclyrics.dto.ControllerErrorResponse;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -22,6 +22,11 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NoPlayingTrackException.class)
     public ResponseEntity<ControllerErrorResponse> noPlayingTrackExceptionHandler(NoPlayingTrackException e) {
+        return new ResponseEntity<>(ControllerErrorResponse.fromException(e), HttpStatus.NO_CONTENT);
+    }
+
+    @ExceptionHandler(SessionNotFoundException.class)
+    public ResponseEntity<ControllerErrorResponse> sessionNotFoundExceptionHandler(SessionNotFoundException e) {
         return new ResponseEntity<>(ControllerErrorResponse.fromException(e), HttpStatus.NO_CONTENT);
     }
 }

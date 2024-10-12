@@ -25,6 +25,9 @@
             <column name="access_expires_at" type="date">
                 <constraints nullable="false"/>
             </column>
+            <column name="has_fetched_by_uuid" type="boolean" defaultValue="false">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>
