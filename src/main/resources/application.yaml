@@ -6,7 +6,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:33060/synclyrics?createDatabaseIfNotExist=true&useSSL=false
+    url: jdbc:mysql://sharphurt.ru:33060/synclyrics
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
