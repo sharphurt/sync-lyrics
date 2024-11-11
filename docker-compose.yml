@@ -1,10 +1,17 @@
 services:
   synclyrics:
-    image: news-storage
+    image: sinkuro-backend
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      FRONTEND_URL: ${FRONTEND_URL}
+      SPOTIFY_CLIENT_ID: ${SPOTIFY_CLIENT_ID}
+      SPOTIFY_CLIENT_SECRET: ${SPOTIFY_CLIENT_SECRET}
     build:
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8104:8080"
     depends_on:
       - db
 
@@ -17,7 +24,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: false
       MYSQL_DATABASE: synclyrics
     ports:
-      - "33061:3306"
+      - "3306:3306"
     volumes:
       - ./src/main/resources/db/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./dbdata:/var/lib/mysql

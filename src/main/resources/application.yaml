@@ -6,9 +6,9 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:mysql://localhost:33061/synclyrics
-    username: ${MYSQL_USER}:sharphurt
-    password: ${MYSQL_PASSWORD}:password
+    url: jdbc:mysql://host.docker.internal:33060/synclyrics
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   liquibase:
     enabled: true
@@ -60,6 +60,3 @@ spotify:
     user-read-recently-played,
     user-follow-read,
     user-follow-modify
-
-server:
-  port: ${SERVER_PORT}:8080
