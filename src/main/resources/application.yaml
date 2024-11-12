@@ -26,7 +26,7 @@ server:
   ssl:
     key-store: /etc/ssl/sinkuro_backend.p12
     key-store-password: password
-    key-store-type: pkcs12
+    key-store-type: PKSC12
     key-alias: sinkuro_backend
     key-password: ${SSL_KEYSTORE_PASSWORD}
 
@@ -46,7 +46,7 @@ spotify:
   tokenUri: https://accounts.spotify.com/api/token
   authorizationUri: https://accounts.spotify.com/authorize
   baseUri: https://api.spotify.com/v1
-  redirectUri: http://localhost:8080/callback
+  redirectUri: https://sinkuro.sharphurt.ru/callback
   grandType: authorization_code
   scopes: >
     ugc-image-upload,
