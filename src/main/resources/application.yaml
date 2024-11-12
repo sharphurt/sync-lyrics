@@ -46,7 +46,7 @@ spotify:
   tokenUri: https://accounts.spotify.com/api/token
   authorizationUri: https://accounts.spotify.com/authorize
   baseUri: https://api.spotify.com/v1
-  redirectUri: https://sinkuro.sharphurt.ru/callback
+  redirectUri: https://api.sinkuro.sharphurt.ru/callback
   grandType: authorization_code
   scopes: >
     ugc-image-upload,
