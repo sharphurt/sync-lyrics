@@ -24,7 +24,7 @@ spring:
 
 server:
   ssl:
-    key-store: classpath:keystore.p12
+    key-store: /etc/ssl/sinkuro_backend.p12
     key-store-password: password
     key-store-type: pkcs12
     key-alias: sinkuro_backend
