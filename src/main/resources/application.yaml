@@ -22,6 +22,14 @@ spring:
           default:
             loggerLevel: full
 
+server:
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: password
+    key-store-type: pkcs12
+    key-alias: sinkuro_backend
+    key-password: ${SSL_KEYSTORE_PASSWORD}
+
 logging:
   level:
     ru.sharphurt.synclyrics: DEBUG
