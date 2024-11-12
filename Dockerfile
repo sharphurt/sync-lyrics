@@ -11,8 +11,5 @@ FROM openjdk:21
 ARG BUILD_HOME
 ENV APP_HOME=$BUILD_HOME
 
-COPY etc/ssl/sharphurt.ru.crt /etc/ssl/sharphurt.ru.crt
-RUN keytool -import -alias sinkuro_backend -file /etc/ssl/sharphurt.ru.crt -keystore sinkuro_backend.p12 -storepass password
-
 COPY --from=build-image $APP_HOME/build/libs/synclyrics-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT java -jar app.jar
