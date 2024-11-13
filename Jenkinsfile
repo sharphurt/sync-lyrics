@@ -51,7 +51,7 @@ pipeline {
                         -e SPOTIFY_CLIENT_ID=$SPOTIFY_CLIENT_ID \
                         -e SPOTIFY_CLIENT_SECRET=$SPOTIFY_CLIENT_SECRET \
                         -e SSL_KEYSTORE_PASSWORD=$SSL_KEYSTORE_PASSWORD \
-                        -e FRONTEND_URL=https://sharphurt.ru \
+                        -e FRONTEND_URL=https://sinkuro.sharphurt.ru \
                         ${env.APP_NAME}
                         """
                 }
